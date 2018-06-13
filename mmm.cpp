@@ -1,4 +1,15 @@
 //Mean, Median, Mode
+/***
+IP
+10
+64630 11735 14216 99233 14470 4978 73429 38120 51135 67060
+
+OP
+43900.6
+44627.5
+4978
+***/
+
 #include <cstdio>
 #include <vector>
 #include <iostream>
@@ -7,40 +18,44 @@ using namespace std;
 
 
 int main() {
-    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
-    float count,total=0,temp;
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    float temp, total=0;
+    int count;
+    float mean, mode, median;
     vector<float> v;
-    cin >> count;
-    for (int i=0;i<count;i++){
+    cin >> count;    
+    for(int i = 0 ; i < count ; i ++ ){
         cin >> temp;
+        total += temp;
         v.push_back(temp);
-        total += v[i];
     }
     sort(v.begin(),v.end());
-    //Mean
-    printf("%.1f\n",total/count);
-    //Median
-    if(int(count)%2==0){
-        printf("%.1f\n", float((v[count/2]+v[count/2-1])/2));
+    mean = total/count;
+    // Mean
+    printf("%.1f\n",mean);
+    // Median
+    if(count%2==0){
+        printf("%.1f\n", (v[count/2]+v[count/2-1])/2);
     }
     else{
         printf("%.1f\n", v[count/2]);
+        //cout << v[count/2] << endl;
     }
-    //Mode
-    float mode = temp = v[0];
+    // Mode
+    mode = temp = v[0];
     count = 1;
-    int countm = 1;
-    for(int i=1;i<v.size();++i){
-        if (v[i]==temp){
-            count++;
+    int counttemp = 1;
+    for (vector<float>::iterator it =v.begin()+1;it!=v.end();++it){
+        if(*it == temp){
+            counttemp ++;
         }
         else{
-            if( count > countm){
-                countm=count;
+            if(counttemp > count){
+                count = counttemp;
                 mode = temp;
             }
-            count = 1;
-            temp = v[i];
+            counttemp = 1;
+            temp = *it;
         }
     }
     cout << mode;
