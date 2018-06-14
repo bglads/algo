@@ -23,6 +23,7 @@ using namespace std;
 
 int main() {
     int count,temp;
+    ios::sync_with_stdio(false);
     cin >> count;
     vector <int> a;
     for(int i=0;i<count;i++){
@@ -36,7 +37,7 @@ int main() {
         cin >> temp;
         low = lower_bound(a.begin(),a.end(), temp);
         
-        find(a.begin(),a.end(),temp)!=a.end()?cout<< "Yes" : cout<<"No";
+        *low==temp?cout<< "Yes" : cout<<"No";
         cout <<" "<< low-a.begin()+1 <<endl;
     }        
     
