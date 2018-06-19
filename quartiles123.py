@@ -14,9 +14,8 @@ a=list(map(int,input().strip().split()))
 a.sort()
 l=len(a)
 quartile = lambda a: (a[len(a)//2]+a[len(a)//2-1])/2 if(len(a)%2==0) else int(a[len(a)//2])
-count = 2
+
 if(l%2==0):
-    if (count)
     q2=quartile(a)
     # length of the q1 is total_length//2
     q1_len=l//2
