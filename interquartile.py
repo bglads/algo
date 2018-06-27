@@ -24,7 +24,4 @@ def  find(x,l):
 ## If length is even median is the average of the two middle elements. If length is odd median is the middle element
 median=lambda x,l: (find(x,l//2)+find(x,l//2-1))/2 if(l%2==0) else find(x,l//2)
 a=sorted(zip(a,f))
-if (len%2==0):
-    print("{:.1f}".format(median(a[::-1],len//2)-median(a,len//2)))
-else:
-    print("{:.1f}".format(median(a[::-1],len//2)-median(a,len//2)))
+print("{:.1f}".format(median(a[::-1],len//2)-median(a,len//2)))
